@@ -8,7 +8,7 @@ package com.mycompany.practica1;
  *
  * @author pablo
  */
-public class Persona {
+public class Personaje {
     
  
     
