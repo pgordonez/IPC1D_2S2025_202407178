@@ -38,6 +38,24 @@ public class Practica1 {
        
 
     public static void main(String[] args) {
+        while(true){
+            System.out.println("******* MENU PRINCIPAL *******");
+            System.out.println("1. Agregar Personaje");
+            System.out.println("2. Modificar Personaje");
+            System.out.println("3. Eliminar Personaje");
+            System.out.println("4. Ver Datos de un Personaje");
+            System.out.println("5. Ver Listado de Personajes");
+            System.out.println("6. Realizar Pelea entre Personajes");
+            System.out.println("7. Ver Historial de Peleas");
+            System.out.println("8. Ver Datos de Estudiante");
+            System.out.println("9. Salir");
+            
+        
+        
+        
+        
+        
+        }
         
        
        
