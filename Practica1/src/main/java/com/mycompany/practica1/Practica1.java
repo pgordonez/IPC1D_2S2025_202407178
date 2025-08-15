@@ -46,7 +46,7 @@ public class Practica1 {
             System.out.println("7. Ver Historial de Peleas");
             System.out.println("8. Ver Datos de Estudiante");
             System.out.println("9. Salir");
-            int opcion = leerEnteroRango("Seleccione una opcion: ", 1, 9);
+            opcion = leerEnteroRango("Seleccione una opcion: ", 1, 9);
             
             switch(opcion){
                 case 1: agregarPersonaje(); break;
@@ -57,7 +57,7 @@ public class Practica1 {
                 case 6: registrarPelea(); break;
                 case 7: verHistorial(); break;
                 case 8: datosEstudiante(); break;
-                case 9: System.out.println("Saliendo del programa");
+                case 9: System.out.println("Saliendo del programa...");
                 return;
                 }
             }
@@ -78,12 +78,12 @@ public class Practica1 {
             }
         }while(existeNombre(nombre));
         String arma = leerCadenaNoVacia("Ingrese el arma del personaje: ");
-        int numHabs = leerEnteroRango("Ingres el numero de habilidades entre (0 - 5)", 0, max_habilidades);
+        int numHabs = leerEnteroRango("Ingrese el numero de habilidades entre (0 - 5)", 0, max_habilidades);
         String[] habsTemp = new String[max_habilidades];
         for (int i = 0; i < numHabs; i++) {
             habsTemp[i] = leerCadenaNoVacia("Habilidad "+ (i+1)+ ": ");
         }
-        int nivel = leerEnteroRango("Ingrese el nivel entre (0 - 100)", 1, 100);
+        int nivel = leerEnteroRango("Ingrese el nivel entre (0 - 100): ", 1, 100);
         personajes[npersonajes] = new Personaje(nextid++, nombre, arma, habsTemp, numHabs, nivel);
         npersonajes++;
         System.out.println("Tu Personaje ha sido agregado con exito.");
@@ -143,9 +143,9 @@ public class Practica1 {
         System.out.println("ID: "+ p.id);
         System.out.println("Nombre: "+p.nombre);
         System.out.println("Arma: "+ p.arma);
-        System.out.println("Habilidades: ");
+        System.out.print("Habilidades: ");
         for (int i = 0; i < p.cantHabilidades; i++) {
-            System.out.print(p.habilidades[i] + (i < p.cantHabilidades - 1 ? ", " : ""));
+            System.out.print(p.habilidades[i] + (i < p.cantHabilidades -1 ? ", " : ""));
         }
         System.out.println("\nNivel: " + p.nivel);  
     }
@@ -158,7 +158,7 @@ public class Practica1 {
         }
         for (int i = 0; i < npersonajes; i++) {
             Personaje p = personajes[i];
-            System.out.println("ID: "+p.id+"  | \n  Nombre:  "+p.nombre+"  | \n  Nivel:  "+p.nivel);
+            System.out.println("ID: "+p.id+"   \nNombre:  "+p.nombre+"   \nNivel:  "+p.nivel+"\n-----------------------");
         }
     }
     
@@ -198,7 +198,7 @@ public class Practica1 {
             return;
         }
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        for (int i = 0; i < npeleas - 1; i++) {
+        for (int i = 0; i < npeleas; i++) {
             System.out.println(idpeleadorA[i]+" vs "+ idpeleadorB[i]+" -- "+ TiempoPelea[i].format(fmt));
         }
     }
@@ -218,7 +218,7 @@ public class Practica1 {
                 int valor = Integer.parseInt(entrada.nextLine().trim());
                 return valor;
             }catch (NumberFormatException error){
-                System.out.println("Error! \n Ingrese un numero entero valido.");
+                System.out.println("********* Error! ********* \nIngrese una opcion valida.");
             }
         }
     }
@@ -227,7 +227,7 @@ public class Practica1 {
             do{
                 valor = leerEntero(mensaje);
                 if(valor<min || valor>max){
-                    System.out.println("El valor tiene que estar entre "+min+" y "+max);
+                    System.out.println("El valor tiene que estar entre "+min+" y "+max +"!!");
                 }
             }while(valor<min || valor>max);
             return valor;

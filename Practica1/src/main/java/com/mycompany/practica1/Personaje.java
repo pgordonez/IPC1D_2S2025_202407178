@@ -17,7 +17,7 @@ public class Personaje {
     int nivel;
 
 
-    public Personaje(int id, String nombre, String arma, String[] habsTemp, int cantHabilidades, int nivel) {
+    public Personaje(int id, String nombre, String arma, String[] habilidades, int cantHabilidades, int nivel) {
         this.id = id;
         this.nombre = nombre;
         this.arma = arma;
