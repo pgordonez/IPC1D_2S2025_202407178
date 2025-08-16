@@ -6,7 +6,6 @@ package com.mycompany.practica1;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -124,7 +123,7 @@ public class Practica1 {
             System.out.println("Cancelado.");
             return;
         }
-        for (int i = idx; i < npersonajes -1 ; i++) {
+        for (int i = idx; i < npersonajes - 1; i++) {
             personajes[i] = personajes[i + 1];
         }
         npersonajes--;
