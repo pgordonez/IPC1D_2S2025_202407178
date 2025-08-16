@@ -125,7 +125,7 @@ public class Practica1 {
             return;
         }
         for (int i = idx; i < npersonajes -1 ; i++) {
-            personajes[i] = personajes[i+1];
+            personajes[i] = personajes[i + 1];
         }
         npersonajes--;
         System.out.println("Personaje Eliminado.");
