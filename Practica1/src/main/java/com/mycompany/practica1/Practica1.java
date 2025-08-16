@@ -34,6 +34,7 @@ public class Practica1 {
        
 
     public static void main(String[] args) {
+        //MENU PRINCIPAL
         while(opcion!=9){
             System.out.println("******* MENU PRINCIPAL *******");
             System.out.println("1. Agregar Personaje");
