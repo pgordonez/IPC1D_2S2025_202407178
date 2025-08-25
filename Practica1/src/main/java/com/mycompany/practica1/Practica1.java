@@ -46,7 +46,8 @@ public class Practica1 {
             System.out.println("7. Ver Historial de Peleas");
             System.out.println("8. Ver Datos de Estudiante");
             System.out.println("9. Salir");
-            opcion = leerEnteroRango("Seleccione una opcion: ", 1, 9);
+            System.out.println("10. Imprime nombre completo");
+            opcion = leerEnteroRango("Seleccione una opcion: ", 1, 10);
             
             switch(opcion){
                 case 1: agregarPersonaje(); break;
@@ -58,6 +59,7 @@ public class Practica1 {
                 case 7: verHistorial(); break;
                 case 8: datosEstudiante(); break;
                 case 9: System.out.println("Saliendo del programa...");
+                case 10: System.out.println("Pablo Gabriel Ordonez Escobar");
                 return;
                 }
             }
