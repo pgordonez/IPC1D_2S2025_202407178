@@ -25,8 +25,19 @@ public class Proyecto1 {
             System.out.println("5. Generar Reportes");
             System.out.println("6. Ver datos del estudiante");
             System.out.println("7. Bitacora");
-            System.out.println("9. Salir");
+            System.out.println("8. Salir");
             opcion = entrada.nextInt();
+            
+            switch(opcion){
+                case 1: break;
+                case 2: break;
+                case 3: break;
+                case 4: break;
+                case 5: break;
+                case 6: break;
+                case 7: break;
+                case 8: break;
+            }
             
         }
         
