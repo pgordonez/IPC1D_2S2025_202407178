@@ -54,15 +54,38 @@ public class Inventario {
     
     //Metodos de busqueda
     public Producto buscarPorCodigo(String codigo){
-        for (int i = 0; i < cantidadProductos; i++) {
-            if(productos[i].codigo.equals(codigo)){
-                return productos[i];
+        for (int i = 0; i < cantidadProductos; i++) {   //El ciclo se repetira hasta que el iterador recorra la cantidad de productos existentes
+            if(productos[i].codigo.equals(codigo)){     //Verifica que el producto sea igual al del codigo ingresado por el usuario
+                return productos[i];                    //Si si es econtrado devuelve el producto
             }
         }
-        return null;
+        return null;                                    //Si el producto no es encontrado, devuelve null
     }
     public void buscarProductos(Scanner entrada){
-        System.out.println("Buscar por: 1.Codigo, 2.Nombre, 3.Categoria");
-        int opcion = Integer.parseInt(entrada.nextLine());
+        System.out.println("Buscar por: 1.Codigo, 2.Nombre, 3.Categoria");  //Muestra las opciones de busqueda
+        int opcion = Integer.parseInt(entrada.nextLine());          //Lee la opcion del usuario
+        
+        System.out.println("Termino de busqueda: ");
+        String termino = entrada.nextLine();            //Lee lo que el usuario quiere buscar                                
+        
+        boolean encontrado = false;
+        
+        for (int i = 0; i < cantidadProductos; i++) {
+            boolean coincide = false;
+            
+            switch(opcion){
+                case 1: coincide = productos[i].codigo.equalsIgnoreCase(termino); break;
+                case 2: coincide = productos[i].nombre.toLowerCase().contains(termino.toLowerCase()); break;
+                case 3: coincide = productos[i].categoria.equalsIgnoreCase(termino); break;
+            }
+            
+            if(coincide){
+                productos[i].mostrarInfo();
+                encontrado = true;
+            }
+        }
+        if(!encontrado){
+            System.out.println("No se encontraron productos");
+        }
     }
 }
