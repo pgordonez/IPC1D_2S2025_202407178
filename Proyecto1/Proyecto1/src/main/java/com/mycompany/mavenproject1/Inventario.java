@@ -23,7 +23,7 @@ public class Inventario {
     public Inventario(){
         productos = new Producto[100];  //Tamaño inicial
         cantidadProductos = 0;
-        cargarDesdeArchivo();           //Carga datos al iniciar
+        cargarDesdeArchivo();           //Carga datos existentes al iniciar
     }
 
     //Metodo para agregar productos
@@ -35,11 +35,19 @@ public class Inventario {
         System.out.println("Categoria: ");
         String categoria = entrada.nextLine();
         
-        System.out.println("Precio: ");
-        int precio = entrada.nextInt();
+        double precio = 0;
+        int cantidad = 0;
         
-        System.out.println("Cantidad en Stock: ");
-        int cantidad = entrada.nextInt();
+        try{
+            System.out.println("Precio: ");
+            precio = Double.parseDouble(entrada.nextLine());
+            
+            System.out.println("Cantidad en Stock: ");
+            cantidad = Integer.parseInt(entrada.nextLine());
+        }catch(NumberFormatException e){
+            System.out.println("Error: El precio y la cantidad deben ser números validos");
+            return;
+        }
         
         System.out.println("Codigo único: ");
         String codigo = entrada.nextLine();
@@ -55,6 +63,24 @@ public class Inventario {
             return;
         }
         
+        if(codigo.trim().isEmpty()){
+            System.out.println("Error! El codigo no puede estar vacio");
+        }
+        
+        Producto nuevo = new Producto(nombre, categoria, precio, cantidad, codigo);
+        if(cantidadProductos >= productos.length){
+            Producto[] nuevoArray = new Producto[productos.length * 2];
+            for (int i = 0; i < cantidadProductos; i++) {
+                nuevoArray[i] = productos[i];
+            }
+            productos = nuevoArray;
+        }
+        
+        productos[cantidadProductos] = nuevo;
+        cantidadProductos++;
+        
+        guardarEnArchivo();
+        System.out.println("producto agregado exitosamente");
     }
     
     //Metodos de busqueda
@@ -68,7 +94,19 @@ public class Inventario {
     }
     public void buscarProductos(Scanner entrada){
         System.out.println("Buscar por: 1.Codigo, 2.Nombre, 3.Categoria");  //Muestra las opciones de busqueda
-        int opcion = Integer.parseInt(entrada.nextLine());          //Lee la opcion del usuario
+        int opcion = 0;          //Lee la opcion del usuario
+        
+        try{
+            opcion = Integer.parseInt(entrada.nextLine());
+        }catch(NumberFormatException e){
+            System.out.println("Error! debe ingresar un número valido");
+            return;
+        }
+        
+        if(opcion < 1 || opcion > 3){
+            System.out.println("Opcion no valida");
+            return;
+        }
         
         System.out.println("Termino de busqueda: ");
         String termino = entrada.nextLine();            //Lee lo que el usuario quiere buscar                                
@@ -79,9 +117,12 @@ public class Inventario {
             boolean coincide = false;
             
             switch(opcion){
-                case 1: coincide = productos[i].codigo.equalsIgnoreCase(termino); break;    //Compara el codigo ingresado con el codigo a buscar
-                case 2: coincide = productos[i].nombre.toLowerCase().contains(termino.toLowerCase()); break;
-                case 3: coincide = productos[i].categoria.equalsIgnoreCase(termino); break;
+                case 1: coincide = productos[i].codigo.equalsIgnoreCase(termino); 
+                break;    //Compara el codigo ingresado con el codigo a buscar
+                case 2: coincide = productos[i].nombre.toLowerCase().contains(termino.toLowerCase()); 
+                break;    //Busqueda parcial  
+                case 3: coincide = productos[i].categoria.equalsIgnoreCase(termino); 
+                break;    //Busqueda exacta
             }
             
             if(coincide){       //Si hay coincidencias, devuelve la informacion del producto
@@ -91,6 +132,43 @@ public class Inventario {
         }
         if(!encontrado){
             System.out.println("No se encontraron productos");      //Si no hay coincidencias, devuelve el mensaje
+        }
+    }
+    
+    //Metodo Eliminar Producto
+    
+    public void eliminarProducto(Scanner entrada){
+        System.out.println("Codigo del producto a eliminar: ");
+        String codigo = entrada.nextLine();
+        
+        Producto producto = buscarPorCodigo(codigo);
+        if(producto == null){
+            System.out.println("Producto no encontrado");
+            return;
+        }
+        System.out.println("Seguro que quiere eliminar el producto "+ producto.nombre + "? S/N");
+        String confirmacion = entrada.nextLine();
+        
+        if(confirmacion.equalsIgnoreCase("S")){
+            int indice = -1;
+            for (int i = 0; i < cantidadProductos; i++) {
+                if(productos[i].codigo.equals(codigo)){
+                    indice = 1;
+                    break;
+                }
+            }
+            if(indice != -1){
+                for (int i = 0; i < cantidadProductos; i++) {
+                    productos[i] = productos[i + 1];
+                }
+                cantidadProductos--;
+                productos[cantidadProductos] = null;
+                
+                guardarEnArchivo();
+                System.out.println("Producto eliminado exitosamente");
+            }
+        }else{
+            System.out.println("Eliminacion cancelada");
         }
     }
     
@@ -111,13 +189,35 @@ public class Inventario {
             while(fileScanner.hasNextLine()){       //El ciclo se repite hasta que lea todas las lineas en el archivo
                 String[] datos = fileScanner.nextLine().split("\\|");   //Lee una linea completa del archivo
                 if(datos.length == 5){      //Verifica que la linea tenga exactamente 5 partes
-                    Producto p = new Producto(datos[0], datos[1], Double.parseDouble(datos[2]), Integer.parseInt(datos[3]), datos[4]);
-                    productos[cantidadProductos] = p;   //Guarda el producto en la siguiente posicion disponible
-                    cantidadProductos++;        //Incrementa el contador de productos
+                    try{
+                        Producto p = new Producto(datos[0], datos[1], Double.parseDouble(datos[2]), Integer.parseInt(datos[3]), datos[4]);
+                        
+                        if(cantidadProductos >= productos.length){
+                            Producto[] nuevoArray = new Producto[productos.length * 2];
+                            for (int i = 0; i < cantidadProductos; i++) {
+                                nuevoArray[i] = productos[i];
+                            }
+                            productos = nuevoArray;
+                        }
+                        productos[cantidadProductos] = p;
+                        cantidadProductos++;
+                    }catch(NumberFormatException e){
+                        System.out.println("Error en formato de datos del archivo");
+                    }
                 }
             }
         }catch(FileNotFoundException e ){
         System.out.println("Archivo de Inventario no encontrado. Se creará uno nuevo.");
         }
+    }
+    //Metodo para acceder a los datos
+    public Producto obtenerProducto(int indice){
+        if(indice >= 0 && indice < cantidadProductos){
+            return productos[indice];
+        }
+        return null;
+    }
+    public int obtenerCantidadProductos(){
+        return cantidadProductos;
     }
 }
