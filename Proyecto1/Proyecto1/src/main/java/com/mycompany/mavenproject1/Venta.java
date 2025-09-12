@@ -18,7 +18,7 @@ public class Venta {
     String fechaHora;       //Momento en que se realizó la venta
     double total;           //monto total de la venta
     
-    //Constructor
+    //Constructor para ventas nuevas
     public Venta(String codigoProducto, int cantidadVendida, String fechaHora, double total){
         this.codigoProducto = codigoProducto;
         this.cantidadVendida = cantidadVendida;
@@ -27,6 +27,14 @@ public class Venta {
         //Generacion de fecha/hora
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");       //Da formato al texto
         this.fechaHora = formatter.format(new Date());      //Obtiene la fecha actual del sistema
+    }
+    
+    //Constructor para ventas existentes
+    public Venta(String codigoProducto, int cantidadVendida, double total, String fechaHora){
+        this.codigoProducto = codigoProducto;
+        this.cantidadVendida = cantidadVendida;
+        this.total = total;
+        this.fechaHora = fechaHora;
     }
     
     //Metodo Para mostrar informacion

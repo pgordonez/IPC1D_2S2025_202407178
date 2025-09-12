@@ -169,7 +169,7 @@ public class Inventario {
                 cantidadProductos--;        //Reduce el contador en 1
                 productos[cantidadProductos] = null;        //Limpia la ultima posicion
                 
-                guardarEnArchivo();
+                guardarEnArchivo();         //Actualiza el archivo con los cambios
                 System.out.println("Producto eliminado exitosamente");
             }
         }else{
@@ -197,32 +197,32 @@ public class Inventario {
                     try{
                         Producto p = new Producto(datos[0], datos[1], Double.parseDouble(datos[2]), Integer.parseInt(datos[3]), datos[4]);
                         
-                        if(cantidadProductos >= productos.length){
-                            Producto[] nuevoArray = new Producto[productos.length * 2];
+                        if(cantidadProductos >= productos.length){      //Verifica si el array esta lleno
+                            Producto[] nuevoArray = new Producto[productos.length * 2]; //Crea un array con el doble de capacidad
                             for (int i = 0; i < cantidadProductos; i++) {
-                                nuevoArray[i] = productos[i];
+                                nuevoArray[i] = productos[i];       //Transfiere todos los productos existentes
                             }
-                            productos = nuevoArray;
+                            productos = nuevoArray;     //Reasigna referencia productos al nuevo array
                         }
                         productos[cantidadProductos] = p;
                         cantidadProductos++;
                     }catch(NumberFormatException e){
-                        System.out.println("Error en formato de datos del archivo");
+                        System.out.println("Error en formato de datos del archivo");    //Captura errores de conversion numerica
                     }
                 }
             }
-        }catch(FileNotFoundException e ){
-        System.out.println("Archivo de Inventario no encontrado. Se creará uno nuevo.");
+        }catch(FileNotFoundException e ){       //El archivo no existe
+        System.out.println("Archivo de Inventario no encontrado. Se creará uno nuevo.");        //Continua con un inventario vacio
         }
     }
     //Metodo para acceder a los datos
     public Producto obtenerProducto(int indice){
-        if(indice >= 0 && indice < cantidadProductos){
-            return productos[indice];
+        if(indice >= 0 && indice < cantidadProductos){  //Evita indices negativos | Evita acceder mas alla de los productos existentes
+            return productos[indice];   //Retorna el producto en la posicion solicitada
         }
         return null;
     }
     public int obtenerCantidadProductos(){
-        return cantidadProductos;
+        return cantidadProductos;       //retorna cantidad de productos existentes
     }
 }
