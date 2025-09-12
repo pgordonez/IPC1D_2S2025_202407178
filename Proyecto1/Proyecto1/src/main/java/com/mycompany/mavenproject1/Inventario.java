@@ -156,24 +156,24 @@ public class Inventario {
         
         if(confirmacion.equalsIgnoreCase("S")){     //Acepta "S", "s", "Sí", "sí"
             int indice = -1;    //Inicializa con un valor invalido
-            for (int i = 0; i < cantidadProductos; i++) {
-                if(productos[i].codigo.equals(codigo)){
-                    indice = 1;
+            for (int i = 0; i < cantidadProductos; i++) {   //Recorre todos los productos
+                if(productos[i].codigo.equals(codigo)){     //Compara codigos exactamente
+                    indice = 1;     //Guarda la posicion donde se encontró el producto
                     break;
                 }
             }
-            if(indice != -1){
-                for (int i = 0; i < cantidadProductos; i++) {
+            if(indice != -1){       //Asegura que se encontró el indice
+                for (int i = 0; i < cantidadProductos; i++) {       //Cada elemento se desplaza hacia la izquierda
                     productos[i] = productos[i + 1];
                 }
-                cantidadProductos--;
-                productos[cantidadProductos] = null;
+                cantidadProductos--;        //Reduce el contador en 1
+                productos[cantidadProductos] = null;        //Limpia la ultima posicion
                 
                 guardarEnArchivo();
                 System.out.println("Producto eliminado exitosamente");
             }
         }else{
-            System.out.println("Eliminacion cancelada");
+            System.out.println("Eliminacion cancelada");        //Si la confirmacion no fue "S", indica que no se realizó la confirmacion
         }
     }
     
