@@ -19,7 +19,7 @@ public class Venta {
     double total;           //monto total de la venta
     
     //Constructor para ventas nuevas
-    public Venta(String codigoProducto, int cantidadVendida, String fechaHora, double total){
+    public Venta(String codigoProducto, int cantidadVendida, double total){
         this.codigoProducto = codigoProducto;
         this.cantidadVendida = cantidadVendida;
         this.total = total;

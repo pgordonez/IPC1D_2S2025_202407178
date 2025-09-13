@@ -54,8 +54,8 @@ public class Inventario {
         String codigo = entrada.nextLine();             //Lee el codigo ingresado
         
         //Validaciones
-        if(precio<=0 || cantidad <0){       //Rechaza precios negativos o cero || rechaza CANTIDADES negativas (cero esta permitido)
-            System.out.println("Error! \nEl precio y cantidad deben ser positivos.");
+        if(precio <= 0 || cantidad <0){       //Rechaza precios negativos o cero || rechaza CANTIDADES negativas (cero esta permitido)
+            System.out.println("Error! El precio y cantidad deben ser positivos.");
             return;             //Termina el metodo si hay algun error
         }       
         
@@ -173,7 +173,7 @@ public class Inventario {
                 System.out.println("Producto eliminado exitosamente");
             }
         }else{
-            System.out.println("Eliminacion cancelada");        //Si la confirmacion no fue "S", indica que no se realizó la confirmacion
+            System.out.println("Eliminacion cancelada");        //Si la confirmacion fue "N", indica que no se realizó la confirmacion
         }
     }
     
@@ -212,7 +212,7 @@ public class Inventario {
                 }
             }
         }catch(FileNotFoundException e ){       //El archivo no existe
-        System.out.println("Archivo de Inventario no encontrado. Se creará uno nuevo.");        //Continua con un inventario vacio
+            System.out.println("Archivo de Inventario no encontrado. Se creará uno nuevo.");        //Continua con un inventario vacio
         }
     }
     //Metodo para acceder a los datos
