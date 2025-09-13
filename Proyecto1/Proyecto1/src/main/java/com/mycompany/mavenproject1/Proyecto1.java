@@ -11,11 +11,34 @@ import java.util.Scanner;
  * @author pablo
  */
 public class Proyecto1 {
-    static Scanner entrada = new Scanner(System.in);
-    static int opcion = 0;
-    
     public static void main(String[] args) {
-        while(opcion!=8){
+        Scanner entrada = new Scanner(System.in);
+        Inventario inventario = new Inventario();
+        GestorVentas gestorVentas = new GestorVentas(inventario);
+        
+        int opcion;
+        do{
+            MostrarMenu();
+            
+            try{
+                opcion = Integer.parseInt(entrada.nextLine());
+            }catch(NumberFormatException e){
+                System.out.println("Error: Debe ingresar un número válido");
+                opcion = 0;
+            }
+            
+            switch(opcion){
+                case 1:
+                    inventario.agregarProducto(entrada);
+                    Bitacora.registarAccion("Agregar Producto", "Éxito", "Usuario");
+                    break;
+                case 2:
+                
+            }
+           
+        }
+        
+        private static void MostrarMenu(){
             System.out.println("-------- MENÚ PRINCIPAL --------");
             System.out.println("Seleccione una opcion: ");
             System.out.println("1. Agregar Producto");
@@ -27,20 +50,7 @@ public class Proyecto1 {
             System.out.println("7. Bitacora");
             System.out.println("8. Salir");
             System.out.println("Seleccione una opcion: ");
-            opcion = entrada.nextInt();
-            
-            switch(opcion){
-                case 1: break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
-                case 8: break;
-            } 
         }
-        
         
         
         
