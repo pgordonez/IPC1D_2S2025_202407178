@@ -1,0 +1,15 @@
+13/09/2025 23:00:32|Agregar Producto|Éxito|Usuario
+13/09/2025 23:00:55|Buscar Producto|Êxito|Usuario
+13/09/2025 23:01:33|Agregar Producto|Éxito|Usuario
+13/09/2025 23:01:49|Registrar Venta|Éxito|Usuario
+13/09/2025 23:01:59|Buscar Producto|Êxito|Usuario
+13/09/2025 23:02:18|Generar reporte|Éxito|Usuario
+13/09/2025 23:02:44|Ver Bitacora|Éxito|Usuario
+13/09/2025 23:03:02|Generar reporte|Éxito|Usuario
+13/09/2025 23:03:30|Eliminar Producto|Éxito|Usuario
+13/09/2025 23:03:46|Buscar Producto|Êxito|Usuario
+13/09/2025 23:03:59|Buscar Producto|Êxito|Usuario
+13/09/2025 23:04:10|Buscar Producto|Êxito|Usuario
+13/09/2025 23:04:26|Registrar Venta|Éxito|Usuario
+13/09/2025 23:04:37|Buscar Producto|Êxito|Usuario
+13/09/2025 23:04:43|Generar reporte|Éxito|Usuario

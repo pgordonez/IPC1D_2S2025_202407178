@@ -5,8 +5,9 @@
 package com.mycompany.mavenproject1;
 
 import java.util.Scanner;
-
-/**
+    
+/**1
+ * 
  *
  * @author pablo
  */
@@ -33,10 +34,65 @@ public class Proyecto1 {
                     Bitacora.registarAccion("Agregar Producto", "Éxito", "Usuario");
                     break;
                 case 2:
-                
+                    inventario.buscarProductos(entrada);
+                    Bitacora.registarAccion("Buscar Producto", "Êxito", "Usuario");
+                    break;
+                case 3:
+                    inventario.eliminarProducto(entrada);
+                    Bitacora.registarAccion("Eliminar Producto", "Éxito", "Usuario");
+                    break;
+                case 4:
+                    gestorVentas.registrarVenta(entrada);
+                    Bitacora.registarAccion("Registrar Venta", "Éxito", "Usuario");
+                    break;
+                case 5:
+                    System.out.println("1. reporte de Stock");
+                    System.out.println("2. reporte de ventas");
+                    System.out.println("Seleccione una opcion: ");
+                    
+                    try{
+                        int subOpcion = Integer.parseInt(entrada.nextLine());
+                        
+                        if(subOpcion == 1){
+                            GeneradorReportes.generarReportesStock(inventario);
+                        } else if(subOpcion == 2){
+                            GeneradorReportes.generarReporteVentas(gestorVentas);
+                        }else{
+                            System.out.println("Ingrese una opcion valida");
+                        }
+                        Bitacora.registarAccion("Generar reporte", "Éxito", "Usuario");
+                    }catch(NumberFormatException e){
+                        System.out.println("Error! Debe ingresar un numero valido");
+                    }
+                    break;
+                case 6:
+                    System.out.println("=== DATOS DEL ESTUDIANTE ===");
+                    System.out.println("Nombre: Pablo Gabriel Ordoñez Escobar");
+                    System.out.println("Carné: 202407178");
+                    System.out.println("Curso: Introducción a la Programación y Computación 1");
+                    System.out.println("Sección: D");
+                    System.out.println("Carrera: Ingenieria en Ciencias y Sistemas");
+                    System.out.println("Universidad San Carlos de Guatemala");
+                    break;
+                case 7:
+                    Bitacora.mostrarBitacora();
+                    Bitacora.registarAccion("Ver Bitacora", "Éxito", "Usuario");
+                    break;
+                case 8:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    if(opcion != 0){
+                        System.out.println("Opción no válida");
+                    }
             }
-           
-        }
+            if(opcion !=8){
+                System.out.println("Presione Enter para continuar...");
+                entrada.nextLine();
+            }
+        }while(opcion != 8);
+        entrada.close();
+    }
         
         private static void MostrarMenu(){
             System.out.println("-------- MENÚ PRINCIPAL --------");
@@ -55,4 +111,3 @@ public class Proyecto1 {
         
         
     }
-}

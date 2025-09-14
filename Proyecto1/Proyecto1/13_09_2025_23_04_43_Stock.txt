@@ -1,0 +1,10 @@
+=== REPORTE DE STOCK ===
+Fecha: 13/09/2025 23:04:43
+==========================================
+
+Producto: Comida de perros
+Código: P101
+Categoría: Mascotas
+Precio: Q100.0
+Stock: 100
+------------------------------------------
