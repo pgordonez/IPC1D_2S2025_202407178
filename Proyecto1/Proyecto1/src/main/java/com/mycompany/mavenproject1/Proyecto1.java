@@ -70,7 +70,7 @@ public class Proyecto1 {
                     System.out.println("Nombre: Pablo Gabriel Ordoñez Escobar");
                     System.out.println("Carné: 202407178");
                     System.out.println("Curso: Introducción a la Programación y Computación 1");
-                    System.out.println("Sección: D");
+                    System.out.println("Sección: B");
                     System.out.println("Carrera: Ingenieria en Ciencias y Sistemas");
                     System.out.println("Universidad San Carlos de Guatemala");
                     break;

@@ -13,3 +13,10 @@
 13/09/2025 23:04:26|Registrar Venta|Éxito|Usuario
 13/09/2025 23:04:37|Buscar Producto|Êxito|Usuario
 13/09/2025 23:04:43|Generar reporte|Éxito|Usuario
+14/09/2025 16:13:24|Agregar Producto|Éxito|Usuario
+14/09/2025 22:10:32|Buscar Producto|Êxito|Usuario
+14/09/2025 22:19:06|Eliminar Producto|Éxito|Usuario
+14/09/2025 22:22:24|Agregar Producto|Éxito|Usuario
+14/09/2025 22:22:36|Registrar Venta|Éxito|Usuario
+14/09/2025 22:24:53|Generar reporte|Éxito|Usuario
+14/09/2025 23:01:37|Ver Bitacora|Éxito|Usuario
