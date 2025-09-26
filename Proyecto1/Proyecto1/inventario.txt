@@ -1,1 +1,2 @@
-Pasta dental|Higiene|43.0|97|002
+Comida para perros|Mascotas|100.0|5|001
+Lays|Snacks|5.0|90|003

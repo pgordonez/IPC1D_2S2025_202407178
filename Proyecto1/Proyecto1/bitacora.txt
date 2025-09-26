@@ -20,3 +20,23 @@
 14/09/2025 22:22:36|Registrar Venta|Éxito|Usuario
 14/09/2025 22:24:53|Generar reporte|Éxito|Usuario
 14/09/2025 23:01:37|Ver Bitacora|Éxito|Usuario
+20/09/2025 10:35:02|Agregar Producto|Éxito|Usuario
+20/09/2025 10:35:25|Agregar Producto|Éxito|Usuario
+20/09/2025 10:35:37|Buscar Producto|Êxito|Usuario
+20/09/2025 10:35:53|Buscar Producto|Êxito|Usuario
+20/09/2025 10:36:13|Registrar Venta|Éxito|Usuario
+20/09/2025 10:36:22|Generar PDF|Reporte de Ventas|Usuario
+20/09/2025 10:36:22|Generar reporte|Éxito|Usuario
+20/09/2025 10:36:32|Ver Bitacora|Éxito|Usuario
+20/09/2025 11:58:42|Agregar Producto|Éxito|Usuario
+20/09/2025 11:59:07|Agregar Producto|Éxito|Usuario
+20/09/2025 11:59:30|Buscar Producto|Êxito|Usuario
+20/09/2025 11:59:46|Eliminar Producto|Éxito|Usuario
+20/09/2025 11:59:56|Buscar Producto|Êxito|Usuario
+20/09/2025 12:00:16|Buscar Producto|Êxito|Usuario
+20/09/2025 12:00:51|Registrar Venta|Éxito|Usuario
+20/09/2025 12:01:01|Generar PDF|Reporte de Ventas|Usuario
+20/09/2025 12:01:01|Generar reporte|Éxito|Usuario
+20/09/2025 12:01:47|Generar PDF|Reporte de Stock|Usuario
+20/09/2025 12:01:47|Generar reporte|Éxito|Usuario
+20/09/2025 12:02:19|Ver Bitacora|Éxito|Usuario

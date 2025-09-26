@@ -44,8 +44,17 @@ public class Bitacora {
             }
         }catch(FileNotFoundException e){
             System.out.println("No hay registros en la bitácora");
-        }
-            
+        }   
     }
+    public static void registarAccionPDF(String tipoReporte, String usuario) {
+    try(PrintWriter writer = new PrintWriter(new FileWriter("bitacora.txt", true))){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String fechaHora = formatter.format(new Date());
+        
+        writer.println(fechaHora + "|Generar PDF|" + tipoReporte + "|" + usuario);
+    }catch(IOException e){
+        System.out.println("Error al registrar en bitácora: " + e.getMessage());
+    }
+}
     
 }

@@ -81,6 +81,14 @@ public class Proyecto1 {
                 case 8:
                     System.out.println("Saliendo del programa...");
                     break;
+                case 9:
+                    int a,b,resultado;
+                    System.out.println("Ingrese el numero a: ");
+                    a = entrada.nextInt();
+                    System.out.println("Ingrese el numero b: ");
+                    b = entrada.nextInt();
+                    resultado = a + b;
+                    System.out.println(resultado);
                 default:
                     if(opcion != 0){
                         System.out.println("Opción no válida");
@@ -105,6 +113,7 @@ public class Proyecto1 {
             System.out.println("6. Ver datos del estudiante");
             System.out.println("7. Bitacora");
             System.out.println("8. Salir");
+            System.out.println("9. Suma");
             System.out.println("Seleccione una opcion: ");
         }
         
