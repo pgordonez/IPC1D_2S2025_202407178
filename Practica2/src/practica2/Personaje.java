@@ -132,7 +132,8 @@ public boolean estaVivo(){
 
 //Método para clonar personaje (útil para batallas)
 public Personaje clonar(){
-    Personaje clon = new Personaje(this.id, this.nombre, this.arma, this.hp, this.ataque, this.velocidad, this.agilidad, this.defensa);
+    Personaje clon = new Personaje(this.id, this.nombre, this.arma, this.hp, this.ataque,
+            this.velocidad, this.agilidad, this.defensa);
     clon.setBatallasGanadas(this.batallasGanadas);
     clon.setBatallasPerdidas(this.batallasPerdidas);
     return clon;
