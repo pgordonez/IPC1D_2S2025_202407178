@@ -13,12 +13,15 @@ import javax.swing.SwingUtilities;
  */
 public class Batalla{
     private Personaje jugador1, oponente;
+    private Personaje j1Original, oponenteOriginal;
     private JTextArea area;
     private volatile boolean activa = true;
     
     public Batalla(Personaje p1, Personaje oponente, JTextArea area){
         this.jugador1 = p1.clonar(); //Usa clones para no modificar a los originales
         this.oponente = oponente.clonar();
+        this.j1Original = jugador1;
+        this.oponenteOriginal = oponente;
         this.area = area;
     }
     
@@ -44,12 +47,12 @@ public class Batalla{
         
         if(jugador1.estaVivo()){
             agregarTexto("\n ¡GANADOR: " + jugador1.getNombre() + "!");
-            jugador1.incrementarBatallasGanadas();
-            oponente.incrementarBatallasPerdidas();
+            j1Original.incrementarBatallasGanadas();
+            oponenteOriginal.incrementarBatallasPerdidas();
         }else{
             agregarTexto("\n ¡GANADOR: " + oponente.getNombre() + "!");
-            oponente.incrementarBatallasGanadas();
-            jugador1.incrementarBatallasPerdidas();
+            oponenteOriginal.incrementarBatallasGanadas();
+            j1Original.incrementarBatallasPerdidas();
         }
         
         agregarTexto("=== BATALLA FINALIZADA ===");
